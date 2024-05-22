@@ -33,21 +33,21 @@
 
 ```
 ecommerce-app/
-├── services/
-│   ├── order-service/
-│   ├── payment-service/
-│   ├── shipping-service/
-├── api-gateway/
-├── docker-compose.yml
-└── README.md
-```
+===services/
+===+==order-service/
+===+==payment-service/
+===+==shipping-service/
+== api-gateway/
+== docker-compose.yml
+ README.md
+
 
 ## Services Overview
 
-- **Order Service**: Handles order placements and inventory management.
-- **Payment Service**: Processes payments for orders.
-- **Shipping Service**: Manages shipments for orders.
-- **API Gateway**: Routes requests to the appropriate services.
+-  Order Service**: Handles order placements and inventory management.
+-  Payment Service**: Processes payments for orders.
+-  Shipping Service**: Manages shipments for orders.
+-  API Gateway**: Routes requests to the appropriate services.
 
 ## Testing
 
