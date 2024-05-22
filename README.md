@@ -62,3 +62,8 @@ docker-compose run <service-name> npm test
 - Use environment variables to manage sensitive information.
 - Implement input validation to prevent SQL injection attacks.
 - Use HTTPS to encrypt data transmitted between clients and the server.
+
+also do not forget to use 
+npm install swagger-jsdoc swagger-ui-express
+
+
