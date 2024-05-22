@@ -1,0 +1,65 @@
+
+# Distributed E-commerce Platform
+
+## Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository_url>
+   cd ecommerce-app
+   ```
+
+2. **Set up the environment variables**
+   Create a `.env` file in the project root with the following content:
+   ```env
+   PGUSER=your_postgres_user
+   PGPASSWORD=your_postgres_password
+   PGHOST=localhost
+   PGDATABASE=your_database_name
+   PGPORT=5432
+   ```
+
+3. **Build and run the services using Docker Compose**
+   ```bash
+   docker-compose up --build
+   ```
+
+4. **Access the services**
+   - Order Service: `http://localhost:3000`
+   - Payment Service: `http://localhost:3001`
+   - Shipping Service: `http://localhost:3002`
+   - API Gateway: `http://localhost:3003`
+
+## Project Structure
+
+```
+ecommerce-app/
+├── services/
+│   ├── order-service/
+│   ├── payment-service/
+│   ├── shipping-service/
+├── api-gateway/
+├── docker-compose.yml
+└── README.md
+```
+
+## Services Overview
+
+- **Order Service**: Handles order placements and inventory management.
+- **Payment Service**: Processes payments for orders.
+- **Shipping Service**: Manages shipments for orders.
+- **API Gateway**: Routes requests to the appropriate services.
+
+## Testing
+
+Unit tests are included in each service. To run the tests:
+```bash
+docker-compose run <service-name> npm test
+```
+
+## Security Considerations
+
+- Ensure sensitive data such as database credentials are stored securely.
+- Use environment variables to manage sensitive information.
+- Implement input validation to prevent SQL injection attacks.
+- Use HTTPS to encrypt data transmitted between clients and the server.

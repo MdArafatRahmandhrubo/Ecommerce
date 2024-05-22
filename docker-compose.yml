@@ -1,0 +1,63 @@
+version: '3'
+services:
+  order-service:
+    build: ./order-service
+    ports:
+      - "3000:3000"
+    environment:
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGHOST=${PGHOST}
+      - PGDATABASE=${PGDATABASE}
+      - PGPORT=${PGPORT}
+    depends_on:
+      - db
+
+  payment-service:
+    build: ./payment-service
+    ports:
+      - "3001:3001"
+    environment:
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGHOST=${PGHOST}
+      - PGDATABASE=${PGDATABASE}
+      - PGPORT=${PGPORT}
+    depends_on:
+      - db
+
+  shipping-service:
+    build: ./shipping-service
+    ports:
+      - "3002:3002"
+    environment:
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGHOST=${PGHOST}
+      - PGDATABASE=${PGDATABASE}
+      - PGPORT=${PGPORT}
+    depends_on:
+      - db
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3003:3003"
+    depends_on:
+      - order-service
+      - payment-service
+      - shipping-service
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

@@ -1,0 +1,16 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway for the e-commerce platform",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "axios": "^0.21.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

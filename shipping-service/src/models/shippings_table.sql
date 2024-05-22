@@ -1,0 +1,7 @@
+CREATE TABLE shippings (
+    id SERIAL PRIMARY KEY,
+    order_id INT NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
